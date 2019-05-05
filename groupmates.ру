@@ -1,0 +1,69 @@
+#coding:utf-8
+groupmates=[#создаем студентов
+
+{
+"name":u"Олеся",
+"group":"17-02",
+"age":19,
+"marks":[5,5,5,5,5]
+},
+
+{
+"name":u"Екатерина",
+"group":"17-02",
+"age":19,
+"marks":[5,5,5,5,4]
+},
+
+{
+"name":u"Настя",
+"group":"17-03",
+"age":20,
+"marks":[3,4,5,3,5]
+},
+
+{
+"name":u"Саша",
+"group":"17-01",
+"age":20,
+"marks":[4,5,5,3,3]
+},
+
+{
+"name":u"Родин",
+"group":"17-02",
+"age":22,
+"marks":[2,2,2,3,2]
+},
+]
+def print_students(students):
+    print u"Имя студента".ljust(15), \
+        u"Группа".ljust(8), \
+        u"Возраст".ljust(8), \
+        u"Оценки".ljust(20)
+    for student in students:
+        print\
+             student["name"].ljust(15), \
+             student["group"].ljust(8), \
+            str(student["age"]).ljust(8), \
+            str(student["marks"]).ljust(20)
+print "\n"
+print_students(groupmates)
+
+
+def filter_students(students):#функция фильтрации студентов по средней оценке
+
+    print u"Введите среднюю оценку:"
+    sr=int(raw_input())
+    Students=[]#создаем пустой массив
+    print u"Список студентов, удовлетворяющих условию средней оценки"
+    for student in students:#запуск цикла, в котором считаем оценку
+        l=len(student["marks"])
+        s=sum(student["marks"])
+        if (s/l)>=sr:#сравниваем значение с тем,что передано в качестве параметра
+            Students.append(student)
+
+    print_students(Students)
+
+
+filter_students(groupmates)
